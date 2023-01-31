@@ -28,7 +28,7 @@ def keep_alive():
 	o.start()
 
 
-#keep_alive()
+keep_alive()
 
 Email = "rdo5eu@oosln.com"
 #Email = "redogi8497@cowck.com"

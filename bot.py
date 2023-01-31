@@ -11,24 +11,8 @@ import urllib.request
 from joke.jokes import *
 from uuid import uuid4
 import threading
-import flask
 from helper import hp, com, ad, game,admin,crash,bedit
-app = flask.Flask("")
 
-@app.route("/")
-
-def home():
-	return "Queen Bot is online"
-	
-def run():
-	app.run(host="0.0.0.0", port = random.randint(1000,9000))
-
-def keep_alive():
-	o = threading.Thread(target=run)
-	o.start()
-
-
-keep_alive()
 
 Email = "rdo5eu@oosln.com"
 #Email = "redogi8497@cowck.com"

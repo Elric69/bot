@@ -1,0 +1,10 @@
+amino.fix
+gtts
+requests
+axju-jokes
+fancy-text
+json-minify
+secmail
+names
+pillow
+aiohttp

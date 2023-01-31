@@ -1,10 +1,18 @@
-from flask import Flask
-app = Flask(__name__)
+import flast
+import threading
 
-@app.route('/')
-def hello_world():
-    return 'Bot is on'
+app = flask.Flask("")
 
+@app.route("/")
 
-if __name__ == "__main__":
-    app.run()
+def home():
+	return "Queen Bot is online"
+	
+def run():
+	app.run(host="0.0.0.0", port = random.randint(1000,9000))
+
+def keep_alive():
+	o = threading.Thread(target=run)
+	o.start()
+
+keep_alive()

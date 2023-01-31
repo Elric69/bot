@@ -1,4 +1,4 @@
-import flast
+import flask
 import threading
 
 app = flask.Flask("")

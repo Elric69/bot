@@ -1003,4 +1003,4 @@ ChatId -> {x}""")
 print('ready')
 while True:
 	online()
-	time.sleep(360)
+	time.sleep(420)

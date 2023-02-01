@@ -15,31 +15,13 @@ from helper import hp, com, ad, game,admin,crash,bedit
 import flask
 import threading
 import random
-app = flask.Flask("")
-
-@app.route("/")
-
-def home():
-	return "Queen Bot is online"
-	
-def run():
-	app.run(host="0.0.0.0", port = random.randint(1000,9000))
-
-def keep_alive():
-	o = threading.Thread(target=run)
-	o.start()
-
-keep_alive()
 
 Email = "rdo5eu@oosln.com"
-#Email = "redogi8497@cowck.com"
 Password = "uiic2208"
 
 
-#comId = '173896069' #aquarious
-#comId='187945722' #imagination
 comId = "207137967" #dark world
-#comId = "19665645" #miraculous
+
 vips = []
 whiteList = []
 blackList = []

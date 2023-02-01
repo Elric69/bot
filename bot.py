@@ -15,6 +15,9 @@ from helper import hp, com, ad, game,admin,crash,bedit
 import flask
 import threading
 import random
+from app import keep_alive
+
+keep_alive()
 
 Email = "rdo5eu@oosln.com"
 Password = "uiic2208"

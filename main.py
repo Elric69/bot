@@ -1,3 +1,4 @@
+#pylint:disable=W0702
 import os
 e = os.system
 e("pip install amino.fix")
@@ -127,12 +128,12 @@ def on_group_member_join(data):
 			x=sub.get_chat_thread(data.message.chatId).title
 			k=author.icon
 			o=requests.get(k)
-			file=open(".icons/author.png","wb")
+			file=open("icons/author.png","wb")
 			file.write(o.content)
 			file.close()
 			k =["Just landed to the chat.", "Need water??","Empty your pockets!!","Welcome to the team!!","A stranger has arrived.","Pokes!!","Yay!!! You win a lottery...Just kidding","Hospitable welcome!!","*whisper*Need drugs? ask the Host.","*whisper* Ever drunk???","Knock knock…(who is there?) It’s me"]
 			wm = random.choice(k)
-			with open(".icons/author.png","rb") as f:
+			with open("icons/author.png","rb") as f:
 				sub.send_message(chatId=data.message.chatId,message=f"""
 [C]✬━━━━━━━━━━━━━━━━━━━━━✮
 [C]｡ﾟﾟ･｡･ﾟﾟ｡｡ﾟﾟ･｡･ﾟﾟ｡
@@ -293,11 +294,6 @@ def on_text_message(data):
 
 		if command("-llocked"):
 			sub.send_message(chatId=chatId,message=f"{locked}")
-		if command("-iadmin"):
-			if "-iadmin" in locked:
-				sub.send_message(chatId,"This command is locked",replyTo=msgId)
-			else:
-				sub.send_message(chatId, message=f"{adminName}",replyTo=msgId)
 
 
 		if command("-ban"):
@@ -445,7 +441,7 @@ def on_text_message(data):
 
 		if command('-help'):
 			try:
-				img=open(".icons/img2.png","rb")
+				img=open("icons/img2.png","rb")
 				sub.send_message(chatId=chatId, message=hp,embedImage=img,embedLink="http://aminoapps.com/p/04dt0f",embedTitle="Made by Elric",embedType=0)
 				print(f"help : {author.nickname}")
 			except:pass
@@ -455,7 +451,7 @@ def on_text_message(data):
 			if "-image" in locked:
 				sub.send_message(chatId,"This command is locked",replyTo=msgId)
 			else:
-				img=open(".icons/img2.png","rb")
+				img=open("icons/img2.png","rb")
 				sub.send_message(chatId=chatId, message=ad)
 				print(f"image : {author.nickname}")
 
@@ -464,7 +460,7 @@ def on_text_message(data):
 			if "-game" in locked:
 				sub.send_message(chatId,"This command is locked",replyTo=msgId)
 			else:
-				img=open(".icons/img2.png","rb")
+				img=open("icons/img2.png","rb")
 				sub.send_message(chatId=chatId, message=game,embedImage=img,embedLink="http://aminoapps.com/p/04dt0f",embedTitle="Made by Elric")
 
 
@@ -472,7 +468,7 @@ def on_text_message(data):
 			if "-common" in locked:
 				sub.send_message(chatId,"This command is locked",replyTo=msgId)
 			else:
-				img=open(".icons/img2.png","rb")
+				img=open("icons/img2.png","rb")
 				sub.send_message(chatId=chatId,message=com)
 				print(f"common : {author.nickname}")
 
@@ -543,7 +539,7 @@ def on_text_message(data):
 				for user in mention:
 					if user not in vips:
 						i = sub.get_user_info(user).nickname
-						img=open(".icons/img.png",'rb')
+						img=open("icons/img.png",'rb')
 						a_id=client.get_user_info(userId=str(user)).aminoId
 						sub.send_message(chatId=chatId,message=f'''
 [CI]Global id of {i}
@@ -570,15 +566,15 @@ def on_text_message(data):
 				sub.send_message(chatId,"This command is locked",replyTo=msgId)
 			else:
 				if 'me' in content[4:8]:
-					hx=random.choice(os.listdir(".hug"))
-					hu=f".hug/{hx}"
+					hx=random.choice(os.listdir("hug"))
+					hu=f"hug/{hx}"
 					with open(hu,"rb") as f:
 						sub.full_embed(chatId=chatId,image=f,message=f'•𝑄𝑢𝑒𝑒𝑛ꨄ︎• ‌hugs {author.nickname}',link="http://aminoapps.com/p/04dt0f")
 				else:
 					for user in mention:
-						hx=random.choice(os.listdir(".hug"))
+						hx=random.choice(os.listdir("hug"))
 						i=sub.get_user_info(user).nickname
-						hu=f".hug/{hx}"
+						hu=f"hug/{hx}"
 						with open(hu,"rb") as f:
 							sub.full_embed(chatId=chatId,image=f,message=f'{author.nickname} ‌hugs {i}',link="http://aminoapps.com/p/04dt0f")
 								
@@ -588,13 +584,13 @@ def on_text_message(data):
 				sub.send_message(chatId,"This command is locked",replyTo=msgId)
 			else:
 				if 'for me' in content[7:]:
-					de=".food/burger.png"
+					de="food/burger.png"
 					with open(de,"rb") as f:
 						sub.full_embed(chatId=chatId,image=f,message=f'''[ci]Here's the burger for {author.nickname}''',link="http://aminoapps.com/p/04dt0f")
 				else:
 					for user in mention:
 						i=sub.get_user_info(user).nickname
-						de=".food/burger.png"
+						de="food/burger.png"
 						with open(de,"rb") as f:
 							sub.full_embed(chatId=chatId,image=f,message=f'''[ci]Here's the Burger for {i}''',link="http://aminoapps.com/p/04dt0f")
 					
@@ -661,12 +657,12 @@ def on_text_message(data):
 				for user in mention:
 					x=sub.get_user_info(user).icon
 					r=requests.get(f"{x}")
-					file=open(".icons/user.png","wb")
+					file=open("icons/user.png","wb")
 					file.write(r.content)
 					file.close()
-					with open(".icons/user.png","rb")as i:
+					with open("icons/user.png","rb")as i:
 						sub.send_message(chatId=chatId,file=i,fileType="image")
-						os.remove(".icons/user.png")
+						os.remove("icons/user.png")
 			
 		if command("-announce"):
 			if "-announce" in locked:
@@ -675,13 +671,13 @@ def on_text_message(data):
 				i=content[9:]
 				p=author.icon
 				r=requests.get(f"{p}")
-				file=open(".icons/author.png","wb")
+				file=open("icons/author.png","wb")
 				file.write(r.content)
 				file.close()
 				x=sub.get_chat_threads(start=0,size=1000).chatId
 				chat = sub.get_chat_thread(chatId).title
 				for c in x:
-					with open(".icons/author.png","rb") as pfp:
+					with open("icons/author.png","rb") as pfp:
 						sub.send_message(chatId=c,message=f"""
 [C]✬━━━━━━━━━━━━━━━━━━━━━✮
 [c] Announcement
@@ -727,29 +723,29 @@ ChatId -> {x}""")
 				for user in mention:
 					x=sub.get_user_info(userId=user).icon
 					r=requests.get(f"{x}")
-					file=open(".icons/user.png","wb")
+					file=open("icons/user.png","wb")
 					file.write(r.content)
 					file.close()
 					k=author.icon;o=requests.get(k)
-					file=open(".icons/author.png","wb")
+					file=open("icons/author.png","wb")
 					file.write(o.content)
 					file.close()
-					image1 = Image.open('.icons/user.png')
-					image2 = Image.open('.icons/author.png')
+					image1 = Image.open('icons/user.png')
+					image2 = Image.open('icons/author.png')
 					image1 = image1.resize((400,400))
 					image2 = image2.resize((400,400))
 					image1_size = image1.size
 					new_image = Image.new('RGB',(2*image1_size[0], image1_size[1]), (250,250,250))
 					new_image.paste(image1,(0,0))
 					new_image.paste(image2,(image1_size[0],0))
-					new_image.save(".icons/img.jpg","JPEG")
-					f_img=Image.open('.icons/img.jpg')
+					new_image.save("icons/img.jpg","JPEG")
+					f_img=Image.open('icons/img.jpg')
 					new_image = f_img.resize((800,400))
-					new_image.save('.icons/final.png')
-					os.remove(".icons/author.png")
-					os.remove(".icons/user.png")
-					os.remove(".icons/img.jpg")
-					with open (".icons/final.png","rb") as im:
+					new_image.save('icons/final.png')
+					os.remove("icons/author.png")
+					os.remove("icons/user.png")
+					os.remove("icons/img.jpg")
+					with open ("icons/final.png","rb") as im:
 						x=sub.get_user_info(userId=user).nickname
 						ms=f"""[C]✬━━━━━━━━━━━━━━━━━━━━━━━✮
 [c]Love ❤ match between
@@ -757,7 +753,7 @@ ChatId -> {x}""")
 [c]is {random.randint(0,100)}%
 [C]✬━━━━━━━━━━━━━━━━━━━━━━━✮"""
 						sub.full_embed(chatId=chatId,message=ms,link="http://aminoapps.com/p/04dt0f",image=im)
-						os.remove(".icons/final.png")
+						os.remove("icons/final.png")
 
 
 		if command('-hate'):
@@ -767,29 +763,29 @@ ChatId -> {x}""")
 				for user in mention:
 					x=sub.get_user_info(userId=user).icon
 					r=requests.get(f"{x}")
-					file=open(".icons/user.png","wb")
+					file=open("icons/user.png","wb")
 					file.write(r.content)
 					file.close()
 					k=author.icon;o=requests.get(k)
-					file=open(".icons/author.png","wb")
+					file=open("icons/author.png","wb")
 					file.write(o.content)
 					file.close()
-					image1 = Image.open('.icons/user.png')
-					image2 = Image.open('.icons/author.png')
+					image1 = Image.open('icons/user.png')
+					image2 = Image.open('icons/author.png')
 					image1 = image1.resize((400,400))
 					image2 = image2.resize((400,400))
 					image1_size = image1.size
 					new_image = Image.new('RGB',(2*image1_size[0], image1_size[1]), (250,250,250))
 					new_image.paste(image1,(0,0))
 					new_image.paste(image2,(image1_size[0],0))
-					new_image.save(".icons/img.jpg","JPEG")
-					f_img=Image.open('.icons/img.jpg')
+					new_image.save("icons/img.jpg","JPEG")
+					f_img=Image.open('icons/img.jpg')
 					new_image = f_img.resize((800,400))
-					new_image.save('.icons/final.png')
-					os.remove(".icons/author.png")
-					os.remove(".icons/user.png")
-					os.remove(".icons/img.jpg")
-					with open (".icons/final.png","rb") as im:
+					new_image.save('icons/final.png')
+					os.remove("icons/author.png")
+					os.remove("icons/user.png")
+					os.remove("icons/img.jpg")
+					with open ("icons/final.png","rb") as im:
 						x=sub.get_user_info(userId=user).nickname
 						ms=f"""[C]✬━━━━━━━━━━━━━━━━━━━━━━━✮
 [c]Hate 💔 between 
@@ -797,7 +793,7 @@ ChatId -> {x}""")
 [c]is {random.randint(0,100)}%
 [C]✬━━━━━━━━━━━━━━━━━━━━━━━✮"""
 						sub.full_embed(chatId=chatId,message=ms,link="http://aminoapps.com/p/04dt0f",image=im)
-						os.remove(".icons/final.png")
+						os.remove("icons/final.png")
 				
 				
 			
@@ -812,32 +808,32 @@ ChatId -> {x}""")
 					if user not in vips:
 						x=sub.get_user_info(userId=user).icon
 						r=requests.get(f"{x}")
-						file=open(".icons/user.png","wb")
+						file=open("icons/user.png","wb")
 						file.write(r.content)
 						file.close()
 						k=author.icon;o=requests.get(k)
-						file=open(".icons/author.png","wb")
+						file=open("icons/author.png","wb")
 						file.write(o.content)
 						file.close()
-						Image1 = Image.open('.icons/imgg.png')
+						Image1 = Image.open('icons/imgg.png')
 						Image1copy = Image1.copy()
-						Image2 = Image.open('.icons/user.png')
+						Image2 = Image.open('icons/user.png')
 						Image2copy = Image2.copy()
 						img2=Image2copy.resize((50,50))
 						Image1copy.paste(img2, (250,270))
-						Image1copy.save('.icons/paste.png')
-						image3=Image.open(".icons/paste.png")
-						image4=Image.open(".icons/author.png")
+						Image1copy.save('icons/paste.png')
+						image3=Image.open("icons/paste.png")
+						image4=Image.open("icons/author.png")
 						img4=image4.resize((50,50))
 						img3=image3.copy()
 						img3.paste(img4,(415,105))
-						img3.save(".icons/cut.png")
-						i_mg=Image.open(".icons/cut.png")
+						img3.save("icons/cut.png")
+						i_mg=Image.open("icons/cut.png")
 						f_img=i_mg.resize((800,500))
-						f_img.save(".icons/final.png")
-						os.remove(".icons/paste.png")
-						os.remove(".icons/cut.png")
-						with open (".icons/final.png","rb") as im:
+						f_img.save("icons/final.png")
+						os.remove("icons/paste.png")
+						os.remove("icons/cut.png")
+						with open ("icons/final.png","rb") as im:
 							x=sub.get_user_info(userId=user).nickname
 							ms=f"""
 [ci]{author.nickname} killed {x}"""
@@ -852,43 +848,43 @@ ChatId -> {x}""")
 				for user in mention:
 					x=sub.get_user_info(userId=user).icon
 					r=requests.get(f"{x}")
-					file=open(".icons/user.png","wb")
+					file=open("icons/user.png","wb")
 					file.write(r.content)
 					file.close()
 					k=author.icon;o=requests.get(k)
-					file=open(".icons/author.png","wb")
+					file=open("icons/author.png","wb")
 					file.write(o.content)
 					file.close()
-					Image1 = Image.open('.icons/pro.png')
+					Image1 = Image.open('icons/pro.png')
 					Image1copy = Image1.copy()
-					Image2 = Image.open('.icons/user.png')
-					Image1 = Image.open('.icons/pro.png')
+					Image2 = Image.open('icons/user.png')
+					Image1 = Image.open('icons/pro.png')
 					Image1copy = Image1.copy()
-					Image2 = Image.open('.icons/user.png')
+					Image2 = Image.open('icons/user.png')
 					Image2copy = Image2.copy()
 					img2=Image2copy.resize((60,60))
 					Image1copy.paste(img2, (330,60))
-					Image1copy.save('.icons/paste.png')
-					image3=Image.open(".icons/paste.png")
-					image4=Image.open(".icons/author.png")
+					Image1copy.save('icons/paste.png')
+					image3=Image.open("icons/paste.png")
+					image4=Image.open("icons/author.png")
 					img4=image4.resize((60,60))
 					img3=image3.copy()
 					img3.paste(img4,(180,140))
-					img3.save(".icons/cut.png")
-					i_mg=Image.open(".icons/cut.png")
+					img3.save("icons/cut.png")
+					i_mg=Image.open("icons/cut.png")
 					f_img=i_mg.resize((800,800))
-					f_img.save(".icons/final.png")
-					os.remove(".icons/paste.png")
-					os.remove(".icons/cut.png")
-					with open (".icons/final.png","rb") as im:
+					f_img.save("icons/final.png")
+					os.remove("icons/paste.png")
+					os.remove("icons/cut.png")
+					with open ("icons/final.png","rb") as im:
 						x=sub.get_user_info(userId=user).nickname
 						ms=f"""[C]✬━━━━━━━━━━━━━━━━━━━━━✮
 [c]{author.nickname} proposed {x}
 [C]✬━━━━━━━━━━━━━━━━━━━━━✮"""
 						sub.full_embed(chatId=chatId,message=ms,link="http://aminoapps.com/p/04dt0f",image=im)
-						os.remove(".icons/final.png")
-						os.remove(".icons/author.png")
-						os.remove(".icons/user.png")
+						os.remove("icons/final.png")
+						os.remove("icons/author.png")
+						os.remove("icons/user.png")
 
 					
 		if command('-slap'):
@@ -902,34 +898,34 @@ ChatId -> {x}""")
 					if user not in vips:
 						x=sub.get_user_info(userId=user).icon
 						r=requests.get(f"{x}")
-						file=open(".icons/user.png","wb")
+						file=open("icons/user.png","wb")
 						file.write(r.content)
 						file.close()
 						k=author.icon;o=requests.get(k)
-						file=open(".icons/author.png","wb")
+						file=open("icons/author.png","wb")
 						file.write(o.content)
 						file.close()
-						image1 = Image.open('.icons/user.png')
-						image2 = Image.open('.icons/author.png')
-						Image1 = Image.open('.icons/slap.png')
+						image1 = Image.open('icons/user.png')
+						image2 = Image.open('icons/author.png')
+						Image1 = Image.open('icons/slap.png')
 						Image1copy = Image1.copy()
-						Image2 = Image.open('.icons/user.png')
+						Image2 = Image.open('icons/user.png')
 						Image2copy = Image2.copy()
 						img2=Image2copy.resize((60,60))
 						Image1copy.paste(img2, (100,45))
-						Image1copy.save('.icons/paste.png')
-						image3=Image.open(".icons/paste.png")
-						image4=Image.open(".icons/author.png")
+						Image1copy.save('icons/paste.png')
+						image3=Image.open("icons/paste.png")
+						image4=Image.open("icons/author.png")
 						img4=image4.resize((60,60))
 						img3=image3.copy()
 						img3.paste(img4,(340,80))
-						img3.save(".icons/cut.png")
-						i_mg=Image.open(".icons/cut.png")
+						img3.save("icons/cut.png")
+						i_mg=Image.open("icons/cut.png")
 						f_img=i_mg.resize((800,500))
-						f_img.save(".icons/final.png")
-						os.remove(".icons/paste.png")
-						os.remove(".icons/cut.png")
-						with open (".icons/final.png","rb") as im:
+						f_img.save("icons/final.png")
+						os.remove("icons/paste.png")
+						os.remove("icons/cut.png")
+						with open ("icons/final.png","rb") as im:
 							x=sub.get_user_info(userId=user).nickname
 							ms=f"""[C]✬━━━━━━━━━━━━━━━━━━━━━━━✮
 [c]{x} got {random.randint(0,50)}
@@ -937,7 +933,7 @@ ChatId -> {x}""")
 [C]✬━━━━━━━━━━━━━━━━━━━━━━━✮"""
 							sub.full_embed(chatId=chatId,message=ms,link="http://aminoapps.com/p/04dt0f",image=im)
 
-							os.remove(".icons/final.png")
+							os.remove("icons/final.png")
 
 
 
@@ -952,66 +948,66 @@ ChatId -> {x}""")
 				player = split[1]
 				k=data.message.author.icon
 				o=requests.get(k)
-				file=open(".game/author.png","wb")
+				file=open("game/author.png","wb")
 				file.write(o.content)
 				file.close()
-				image=Image.open(".game/lose.png")
+				image=Image.open("game/lose.png")
 				img=image.copy()
-				image2=Image.open(".game/author.png")
+				image2=Image.open("game/author.png")
 				img2 = image2.copy()
 				img3=img2.resize((190,190))
 				img.paste(img3,(160,30))
-				img.save(".game/sfinal.png")
-				o = Image.open(".game/sfinal.png")
+				img.save("game/sfinal.png")
+				o = Image.open("game/sfinal.png")
 				m = o.resize((835,430))
-				m.save(".game/losefinal.png")
-				_image = Image.open(".game/win.png")
+				m.save("game/losefinal.png")
+				_image = Image.open("game/win.png")
 				_img = _image.copy()
-				_image2=Image.open(".game/author.png")
+				_image2=Image.open("game/author.png")
 				_img2 = _image2.copy()
 				_img3=_img2.resize((190,190))
 				_img.paste(img3,(505,50))
-				_img.save(".game/sfinal.png")
-				_o = Image.open(".game/sfinal.png")
+				_img.save("game/sfinal.png")
+				_o = Image.open("game/sfinal.png")
 				_m = _o.resize((835,430))
-				_m.save(".game/winfinal.png")
-				os.remove(".game/sfinal.png")
+				_m.save("game/winfinal.png")
+				os.remove("game/sfinal.png")
 				l = "http://aminoapps.com/p/04dt0f"
 			
 				if player == computer:
-					with open(".game/tie.png","rb") as o:
+					with open("game/tie.png","rb") as o:
 						sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : Tie]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 				elif player == "rock":
 					if computer == "paper":
-						with open(".game/losefinal.png","rb")as o:
+						with open("game/losefinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Lose!]----\n[c]Bot.     {computer}\n[c]Player : {player}""",link=l,image=o)
 
 
 					if computer == "scissors":
-						with open(".game/winfinal.png","rb")as o:
+						with open("game/winfinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Win!]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 						
 				elif player == "scissors":
 					if computer == "rock":
-						with open(".game/losefinal.png","rb")as o:
+						with open("game/losefinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Lose!]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 						
 					if computer == "paper":
-						with open(".game/winfinal.png","rb")as o:
+						with open("game/winfinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Win!]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 						
 				elif player == "paper":
 					if computer == "scissors":
-						with open(".game/losefinal.png","rb")as o:
+						with open("game/losefinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Lose!]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 						
 					if computer == "rock":
-						with open(".game/winfinal.png","rb")as o:
+						with open("game/winfinal.png","rb")as o:
 							sub.full_embed(chatId=chatId,message=f"""[cb]----[Result : You Win!]----\n[c]Bot.     : {computer}\n[c]Player : {player}""",link=l,image=o)
 
 
@@ -1028,40 +1024,40 @@ ChatId -> {x}""")
 					if user not in vips:
 						x=sub.get_user_info(userId=user).icon
 						r=requests.get(f"{x}")
-						file=open(".icons/user.png","wb")
+						file=open("icons/user.png","wb")
 						file.write(r.content)
 						file.close()
 						k=author.icon;o=requests.get(k)
-						file=open(".icons/author.png","wb")
+						file=open("icons/author.png","wb")
 						file.write(o.content)
 						file.close()
-						image1 = Image.open('.icons/user.png')
-						image2 = Image.open('.icons/author.png')
-						Image1 = Image.open('.icons/trash.png')
+						image1 = Image.open('icons/user.png')
+						image2 = Image.open('icons/author.png')
+						Image1 = Image.open('icons/trash.png')
 						Image1copy = Image1.copy()
-						Image2 = Image.open('.icons/user.png')
+						Image2 = Image.open('icons/user.png')
 						Image2copy = Image2.copy()
 						img2=Image2copy.resize((75,75))
 						Image1copy.paste(img2, (40,250))
-						Image1copy.save('.icons/paste.png')
-						image3=Image.open(".icons/paste.png")
-						image4=Image.open(".icons/author.png")
+						Image1copy.save('icons/paste.png')
+						image3=Image.open("icons/paste.png")
+						image4=Image.open("icons/author.png")
 						img4=image4.resize((95,95))
 						img3=image3.copy()
 						img3.paste(img4,(280,100))
-						img3.save(".icons/cut.png")
-						i_mg=Image.open(".icons/cut.png")
+						img3.save("icons/cut.png")
+						i_mg=Image.open("icons/cut.png")
 						f_img=i_mg.resize((800,800))
-						f_img.save(".icons/final.png")
-						os.remove(".icons/paste.png")
-						os.remove(".icons/cut.png")
-						with open (".icons/final.png","rb") as im:
+						f_img.save("icons/final.png")
+						os.remove("icons/paste.png")
+						os.remove("icons/cut.png")
+						with open ("icons/final.png","rb") as im:
 							x=sub.get_user_info(userId=user).nickname
 							ms=f"""
 [ci]{author.nickname} throws {x} in dustbin"""
 							sub.full_embed(chatId=chatId,message=ms,link="http://aminoapps.com/p/04dt0f",image=im)
-							os.remove(".icons/final.png")
-							os.remove(".icons/user.png")
-							os.remove(".icons/author.png")
+							os.remove("icons/final.png")
+							os.remove("icons/user.png")
+							os.remove("icons/author.png")
 			
 print('ready')

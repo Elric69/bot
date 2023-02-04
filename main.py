@@ -1,9 +1,17 @@
-#pylint:disable=W0702
+import os
+e = os.system
+e("pip install amino.fix")
+e("pip install gtts")
+e("pip install requests")
+e("pip install axju-jokes")
+e("pip install pillow")
+e("pip install flask")
+e("pip install aiohttp==3.8.1")
+
 import aminofix as amino
 import random
 import json
 import requests
-import os
 from PIL import  Image
 import time
 from gtts import gTTS
@@ -28,16 +36,16 @@ def keep_alive():
 	o.start()
 
 
-#keep_alive()
+keep_alive()
 
 Email = "rdo5eu@oosln.com"
 #Email = "redogi8497@cowck.com"
 Password = "uiic2208"
 
 
-#comId = '173896069' #aquarious
+comId = '173896069' #aquarious
 #comId='187945722' #imagination
-comId = "207137967" #dark world
+#comId = "207137967" #dark world
 #comId = "19665645" #miraculous
 
 vips = []

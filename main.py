@@ -1,13 +1,13 @@
 #pylint:disable=W0702
 import os
 e = os.system
-#e("pip install amino.fix")
-#e("pip install gtts")
-#e("pip install requests")
-#e("pip install axju-jokes")
-#e("pip install pillow")
-#e("pip install flask")
-#e("pip install aiohttp==3.8.1")
+e("pip install amino.fix")
+e("pip install gtts")
+e("pip install requests")
+e("pip install axju-jokes")
+e("pip install pillow")
+e("pip install flask")
+e("pip install aiohttp==3.8.1")
 
 import aminofix as amino
 import random
